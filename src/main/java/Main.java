@@ -17,7 +17,6 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.Type;
@@ -98,10 +97,10 @@ public class Main {
         return null;
     }
 
-    public static <T> Object listToJson(List<T> list) {
+    public static String listToJson(List<Employee> list) {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.setPrettyPrinting().create();
-        Type listType = new TypeToken<List<T>>() {
+        Type listType = new TypeToken<List<Employee>>() {
         }.getType();
         return gson.toJson(list, listType);
     }
